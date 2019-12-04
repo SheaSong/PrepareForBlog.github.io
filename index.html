@@ -61,6 +61,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-arcgis4.x弹窗结合echarts" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/04/arcgis4.x%E5%BC%B9%E7%AA%97%E7%BB%93%E5%90%88echarts/" class="article-date">
+  <time datetime="2019-12-04T06:58:11.948Z" itemprop="datePublished">2019-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/04/arcgis4.x%E5%BC%B9%E7%AA%97%E7%BB%93%E5%90%88echarts/">arcgis4.x弹窗结合echarts</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="实现要点"><a href="#实现要点" class="headerlink" title="实现要点"></a>实现要点</h2><p>step1 定义option</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> testOption = &#123;</span><br><span class="line">           ...</span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
+<p>step2 给图层添加属性(判断弹框中是否有图表),弹出框写内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> attributes = &#123;</span><br><span class="line">   Name: <span class="string">"echarts弹框"</span>,  <span class="comment">// The name of the pipeline</span></span><br><span class="line">   hasChart:<span class="literal">true</span>,</span><br><span class="line"> &#125;;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// Create popup template</span></span><br><span class="line"> <span class="keyword">var</span> popupTemplate = &#123;</span><br><span class="line">   title: <span class="string">"&#123;Name&#125;"</span>,</span><br><span class="line">   content: <span class="string">`&lt;div id='lineChart' style='width:100%;height:100%;'&gt;&lt;/div&gt;`</span></span><br><span class="line"> &#125;;</span><br><span class="line">   <span class="keyword">var</span> pointGraphic = <span class="keyword">new</span> Graphic(&#123;</span><br><span class="line">   geometry: point,<span class="comment">//位置 geometry几何</span></span><br><span class="line">   attributes: attributes,<span class="comment">//point信息</span></span><br><span class="line">   popupTemplate: popupTemplate<span class="comment">//info框内容</span></span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+<p>step3加入图层点击事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">view.on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123; <span class="comment">// Listen for the click event</span></span><br><span class="line">        view.hitTest(event).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> graphic = response.results[<span class="number">0</span>].graphic; </span><br><span class="line">           <span class="comment">//在这里获取到图层信息</span></span><br><span class="line">            <span class="keyword">if</span>(graphic.attributes.hasChart)&#123;<span class="comment">//判断弹框中是否有图表</span></span><br><span class="line">                    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">                        <span class="keyword">var</span> myChart  = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'testChart'</span>));</span><br><span class="line">                        myChart.setOption(testOption)&#125;,<span class="number">150</span>)<span class="comment">//延时执行,等弹框界面渲染出来以后再执行</span></span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;)</span><br><span class="line">                            &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/SheaSong/ArcGisDemo/blob/master/echarts%E5%BC%B9%E6%A1%86.html/" target="_blank" rel="noopener">源码</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/04/arcgis4.x%E5%BC%B9%E7%AA%97%E7%BB%93%E5%90%88echarts/" data-id="ck3qy4cyq0000zwv3a1ye27d3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-my-first-Blog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/13/my-first-Blog/" class="article-date">
@@ -87,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/13/my-first-Blog/" data-id="ck3jvpbnn0000z4v3enns5ars" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/13/my-first-Blog/" data-id="ck3qy0xv3000004v32zh80qno" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/13/%E7%8E%A9%E7%8E%A9%E5%BC%82%E6%AD%A5/" data-id="ck3jvpbnt0001z4v31rhoe0y6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/13/%E7%8E%A9%E7%8E%A9%E5%BC%82%E6%AD%A5/" data-id="ck3qy0xv9000104v35ws44luc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -166,7 +210,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
     </div>
   </div>
 
@@ -177,6 +221,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/12/04/arcgis4.x%E5%BC%B9%E7%AA%97%E7%BB%93%E5%90%88echarts/">arcgis4.x弹窗结合echarts</a>
+          </li>
         
           <li>
             <a href="/2019/11/13/my-first-Blog/">my first Blog</a>
