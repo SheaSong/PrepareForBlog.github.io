@@ -5,16 +5,16 @@
   
 
   
-  <title>SheaSong</title>
+  <title>未来正在发生</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="SheaSong">
+<meta property="og:title" content="未来正在发生">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
-<meta property="og:site_name" content="SheaSong">
+<meta property="og:site_name" content="未来正在发生">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="SheaSong" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="未来正在发生" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -33,7 +33,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">SheaSong</a>
+        <a href="/" id="logo">未来正在发生</a>
       </h1>
       
     </div>
@@ -83,7 +83,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="实现要点"><a href="#实现要点" class="headerlink" title="实现要点"></a>实现要点</h2><p>step1 定义option</p>
+        <p><img src="../images/echarts%E5%BC%B9%E6%A1%86.png" alt=""></p>
+<h2 id="实现要点"><a href="#实现要点" class="headerlink" title="实现要点"></a>实现要点</h2><p>step1 定义option</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> testOption = &#123;</span><br><span class="line">           ...</span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
 <p>step2 给图层添加属性(判断弹框中是否有图表),弹出框写内容</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> attributes = &#123;</span><br><span class="line">   Name: <span class="string">"echarts弹框"</span>,  <span class="comment">// The name of the pipeline</span></span><br><span class="line">   hasChart:<span class="literal">true</span>,</span><br><span class="line"> &#125;;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// Create popup template</span></span><br><span class="line"> <span class="keyword">var</span> popupTemplate = &#123;</span><br><span class="line">   title: <span class="string">"&#123;Name&#125;"</span>,</span><br><span class="line">   content: <span class="string">`&lt;div id='lineChart' style='width:100%;height:100%;'&gt;&lt;/div&gt;`</span></span><br><span class="line"> &#125;;</span><br><span class="line">   <span class="keyword">var</span> pointGraphic = <span class="keyword">new</span> Graphic(&#123;</span><br><span class="line">   geometry: point,<span class="comment">//位置 geometry几何</span></span><br><span class="line">   attributes: attributes,<span class="comment">//point信息</span></span><br><span class="line">   popupTemplate: popupTemplate<span class="comment">//info框内容</span></span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
@@ -95,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/04/arcgis4.x%E5%BC%B9%E7%AA%97%E7%BB%93%E5%90%88echarts/" data-id="ck3qy4cyq0000zwv3a1ye27d3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/04/arcgis4.x%E5%BC%B9%E7%AA%97%E7%BB%93%E5%90%88echarts/" data-id="ck4b0z4k80001e4v3ef740ehe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -131,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/13/my-first-Blog/" data-id="ck3qy0xv3000004v32zh80qno" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/13/my-first-Blog/" data-id="ck4b0z4jw0000e4v33rid0d5i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/13/%E7%8E%A9%E7%8E%A9%E5%BC%82%E6%AD%A5/" data-id="ck3qy0xv9000104v35ws44luc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/13/%E7%8E%A9%E7%8E%A9%E5%BC%82%E6%AD%A5/" data-id="ck4b0z4ka0002e4v3abrya58w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +247,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
+      &copy; 2019 Shea Song<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
